@@ -34,6 +34,10 @@ const cookieSession = require('cookie-session');
 export class AppModule {
   constructor(private configService: ConfigService) {}
 
+  /**
+   * Responsible for using our locally configured COOKIE_KEY 
+   * to pull data from session cookie
+   */
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(

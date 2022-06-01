@@ -71,7 +71,6 @@ describe('AuthService', () => {
   it('throws if signin called with invalid pw', (done) => {
     service.signup('test@test.com', 'password').then(() => {
       service.signin('test@test.com', 'wrongpassword').catch((err) => {
-        console.log('error', err.message, err.status);
         expect(err.message).toEqual('invalid credentials');
         expect(err.status).toEqual(400);
         done();
