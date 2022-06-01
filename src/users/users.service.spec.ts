@@ -10,7 +10,7 @@ describe('UsersService', () => {
   beforeEach(async () => {
     fakeUsersEntity = {};
     
-    const module = await Test.createTestingModule({
+    const module: TestingModule = await Test.createTestingModule({
       providers: [
         UsersService,
         { 

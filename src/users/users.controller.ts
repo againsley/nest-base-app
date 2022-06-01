@@ -29,18 +29,6 @@ export class UsersController {
     private authService: AuthService,
   ) {}
 
-  // Session cookie example
-  @Get('/colors/:color')
-  setColor(@Param('color') color: string, @Session() session: any) {
-    session.color = color;
-  }
-
-  // Session cookie example
-  @Get('/colors')
-  getColor(@Session() session: any) {
-    return session.color;
-  }
-
   @Get('/whoami')
   @UseGuards(AuthGuard)
   whoAmI(@CurrentUser() user: User) {

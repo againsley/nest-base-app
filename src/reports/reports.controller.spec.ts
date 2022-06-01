@@ -1,11 +1,21 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ReportsController } from './reports.controller';
+import { ReportsService } from './reports.service';
 
 describe('ReportsController', () => {
   let controller: ReportsController;
+  let fakeReportsService: Partial<ReportsService>;
 
   beforeEach(async () => {
+    fakeReportsService = {};
+
     const module: TestingModule = await Test.createTestingModule({
+      providers: [
+        { 
+          provide: ReportsService,
+          useValue: fakeReportsService,
+        }
+      ],
       controllers: [ReportsController],
     }).compile();
 
